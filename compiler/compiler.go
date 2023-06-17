@@ -1,9 +1,9 @@
 package compiler
 
 import (
-	"github.com/acrucetta/monkey-go/ast"
-	"github.com/acrucetta/monkey-go/code"
-	"github.com/acrucetta/monkey-go/object"
+	"github.com/kitasuke/monkey-go/ast"
+	"github.com/kitasuke/monkey-go/code"
+	"github.com/kitasuke/monkey-go/object"
 )
 
 type Compiler struct {

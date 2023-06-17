@@ -4,12 +4,11 @@ import (
 	"fmt"
 	"testing"
 
-	"github.com/acrucetta/monkey-go/ast"
-	"github.com/acrucetta/monkey-go/lexer"
-	"github.com/acrucetta/monkey-go/parser"
-
-	"github.com/acrucetta/monkey-go/code"
-	"github.com/acrucetta/monkey-go/object"
+	"github.com/kitasuke/monkey-go/ast"
+	"github.com/kitasuke/monkey-go/code"
+	"github.com/kitasuke/monkey-go/lexer"
+	"github.com/kitasuke/monkey-go/object"
+	"github.com/kitasuke/monkey-go/parser"
 )
 
 func parse(input string) *ast.Program {
@@ -124,7 +123,7 @@ func runCompilerTests(t *testing.T, tests []compilerTestCase) {
 		if err != nil {
 			t.Fatalf("testInstructions failed: %s", err)
 		}
-		err = testConstants(tt.expectedConstants, bytecode.Constants)
+		err = testConstants(t, tt.expectedConstants, bytecode.Constants)
 		if err != nil {
 			t.Fatalf("testConstants failed: %s", err)
 		}
