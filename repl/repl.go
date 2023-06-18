@@ -7,7 +7,6 @@ import (
 
 	"github.com/kitasuke/monkey-go/compiler"
 	"github.com/kitasuke/monkey-go/lexer"
-	"github.com/kitasuke/monkey-go/object"
 	"github.com/kitasuke/monkey-go/parser"
 	"github.com/kitasuke/monkey-go/vm"
 )
@@ -16,13 +15,6 @@ const Prompt = ">> "
 
 func Start(in io.Reader, out io.Writer) {
 	scanner := bufio.NewScanner(in)
-
-	constants := []object.Object{}
-	globals := make([]object.Object, vm.GlobalSize)
-	symbolTable := compiler.NewSymbolTable()
-	for i, v := range object.Builtins {
-		symbolTable.DefineBuiltin(i, v.Name)
-	}
 
 	for {
 		fmt.Printf(Prompt)
@@ -41,25 +33,22 @@ func Start(in io.Reader, out io.Writer) {
 			continue
 		}
 
-		comp := compiler.NewWithState(symbolTable, constants)
+		comp := compiler.New()
 		err := comp.Compile(program)
 		if err != nil {
 			fmt.Fprintf(out, "Woops! Compilation fialed:\n %s\n", err)
 			continue
 		}
 
-		code := comp.Bytecode()
-		constants = code.Constants
-
-		machine := vm.NewWithGlobalsStore(code, globals)
+		machine := vm.New(comp.Bytecode())
 		err = machine.Run()
 		if err != nil {
 			fmt.Fprintf(out, "Woops! Executing bytecode fialed:\n %s\n", err)
 			continue
 		}
 
-		lastPopped := machine.LastPoppedStackElem()
-		io.WriteString(out, lastPopped.Inspect())
+		stackTop := machine.StackTop()
+		io.WriteString(out, stackTop.Inspect())
 		io.WriteString(out, "\n")
 	}
 }
