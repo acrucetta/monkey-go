@@ -2,12 +2,13 @@ package vm
 
 import (
 	"fmt"
-	"parser/Documents/Code/monkey-go/compiler"
-	"parser/Documents/Code/monkey-go/object"
 	"testing"
 
 	"github.com/kitasuke/monkey-go/ast"
+
+	"github.com/kitasuke/monkey-go/compiler"
 	"github.com/kitasuke/monkey-go/lexer"
+	"github.com/kitasuke/monkey-go/object"
 	"github.com/kitasuke/monkey-go/parser"
 )
 
@@ -39,7 +40,7 @@ func runVmTests(t *testing.T, tests []vmTestCase) {
 			t.Fatalf("vm error: %s", err)
 		}
 
-		stackElem := vm.LastPoppedStackElem()
+		stackElem := vm.StackTop()
 		testExpectedObject(t, tt.expected, stackElem)
 	}
 }
