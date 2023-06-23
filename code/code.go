@@ -69,6 +69,9 @@ const (
 	OpConstant Opcode = iota
 	OpAdd
 	OpPop
+	OpSub
+	OpMul
+	OpDiv
 )
 
 func Make(op Opcode, operands ...int) []byte {
