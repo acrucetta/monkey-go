@@ -27,6 +27,7 @@ func (c *Compiler) Compile(node ast.Node) error {
 			if err := c.Compile(statement); err != nil {
 				return err
 			}
+			c.emit(code.OpPop)
 		}
 
 	case *ast.ExpressionStatement:
