@@ -30,6 +30,27 @@ func (c *Compiler) Compile(node ast.Node) error {
 			c.emit(code.OpPop)
 		}
 
+	case *ast.BlockStatement:
+		for _, statement := range node.Statements {
+			if err := c.Compile(statement); err != nil {
+				return err
+			}
+		}
+
+	case *ast.IfExpression:
+		err := c.Compile(node.Condition)
+		if err != nil {
+			return err
+		}
+
+		// emit an `OpJumpNotTruthy` with a bogus value
+		c.emit(code.OpJumpNotTruthy, 9999)
+
+		err = c.Compile(node.Consequence)
+		if err != nil {
+			return err
+		}
+
 	case *ast.ExpressionStatement:
 		if err := c.Compile(node.Expression); err != nil {
 			return err

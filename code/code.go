@@ -92,7 +92,6 @@ const (
 	OpMinus
 	OpBang
 	OpJumpNotTruthy
-	OpJump
 )
 
 func Make(op Opcode, operands ...int) []byte {
