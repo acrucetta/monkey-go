@@ -4,9 +4,9 @@ import (
 	"fmt"
 	"testing"
 
-	"github.com/kitasuke/monkey-go/lexer"
-	"github.com/kitasuke/monkey-go/object"
-	"github.com/kitasuke/monkey-go/parser"
+	"github.com/acrucetta/monkey-go/lexer"
+	"github.com/acrucetta/monkey-go/object"
+	"github.com/acrucetta/monkey-go/parser"
 )
 
 func TestEvalIntegerExpression(t *testing.T) {

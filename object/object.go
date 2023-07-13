@@ -6,9 +6,9 @@ import (
 	"hash/fnv"
 	"strings"
 
-	"github.com/kitasuke/monkey-go/ast"
-	"github.com/kitasuke/monkey-go/code"
-	"github.com/kitasuke/monkey-go/token"
+	"github.com/acrucetta/monkey-go/ast"
+	"github.com/acrucetta/monkey-go/code"
+	"github.com/acrucetta/monkey-go/token"
 )
 
 type ObjectType string

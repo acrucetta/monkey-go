@@ -1,6 +1,6 @@
 # monkey-go
 
-[![CircleCI](https://circleci.com/gh/kitasuke/monkey-go/tree/master.svg?style=svg)](https://circleci.com/gh/kitasuke/monkey-go/tree/master)
+[![CircleCI](https://circleci.com/gh/acrucetta/monkey-go/tree/master.svg?style=svg)](https://circleci.com/gh/acrucetta/monkey-go/tree/master)
 
 Monkey programming language from [Writing an interpreter in Go](https://interpreterbook.com) and [Writing a compiler in Go](https://compilerbook.com) books.
 
@@ -10,4 +10,4 @@ Monkey programming language from [Writing an interpreter in Go](https://interpre
 
 ## Other languages
 
-- [monkey-swift](https://github.com/kitasuke/monkey-swift)
+- [monkey-swift](https://github.com/acrucetta/monkey-swift)

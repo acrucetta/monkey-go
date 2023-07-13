@@ -4,11 +4,11 @@ import (
 	"fmt"
 	"testing"
 
-	"github.com/kitasuke/monkey-go/ast"
-	"github.com/kitasuke/monkey-go/code"
-	"github.com/kitasuke/monkey-go/lexer"
-	"github.com/kitasuke/monkey-go/object"
-	"github.com/kitasuke/monkey-go/parser"
+	"github.com/acrucetta/monkey-go/ast"
+	"github.com/acrucetta/monkey-go/code"
+	"github.com/acrucetta/monkey-go/lexer"
+	"github.com/acrucetta/monkey-go/object"
+	"github.com/acrucetta/monkey-go/parser"
 )
 
 func parse(input string) *ast.Program {
@@ -254,7 +254,7 @@ func TestConditionals(t *testing.T) {
 			input: `
 				if (true) { 10 }; 3333;
 			`,
-			expectedConstants: []interface{}{10, 20, 3333},
+			expectedConstants: []interface{}{10, 3333},
 			expectedInstructions: []code.Instructions{
 				// 0000
 				code.Make(code.OpTrue),

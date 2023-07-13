@@ -3,9 +3,9 @@ package evaluator
 import (
 	"fmt"
 
-	"github.com/kitasuke/monkey-go/ast"
-	"github.com/kitasuke/monkey-go/object"
-	"github.com/kitasuke/monkey-go/token"
+	"github.com/acrucetta/monkey-go/ast"
+	"github.com/acrucetta/monkey-go/object"
+	"github.com/acrucetta/monkey-go/token"
 )
 
 const (

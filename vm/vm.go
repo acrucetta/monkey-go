@@ -3,9 +3,9 @@ package vm
 import (
 	"fmt"
 
-	"github.com/kitasuke/monkey-go/code"
-	"github.com/kitasuke/monkey-go/compiler"
-	"github.com/kitasuke/monkey-go/object"
+	"github.com/acrucetta/monkey-go/code"
+	"github.com/acrucetta/monkey-go/compiler"
+	"github.com/acrucetta/monkey-go/object"
 )
 
 const StackSize = 2048
@@ -98,6 +98,12 @@ func (vm *VM) Run() error {
 			condition := vm.pop()
 			if !isTruthy(condition) {
 				ip = pos - 1
+			}
+
+		case code.OpNull:
+			err := vm.push(Null)
+			if err != nil {
+				return err
 			}
 		}
 	}

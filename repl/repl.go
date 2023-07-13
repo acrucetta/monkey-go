@@ -5,10 +5,10 @@ import (
 	"fmt"
 	"io"
 
-	"github.com/kitasuke/monkey-go/compiler"
-	"github.com/kitasuke/monkey-go/lexer"
-	"github.com/kitasuke/monkey-go/parser"
-	"github.com/kitasuke/monkey-go/vm"
+	"github.com/acrucetta/monkey-go/compiler"
+	"github.com/acrucetta/monkey-go/lexer"
+	"github.com/acrucetta/monkey-go/parser"
+	"github.com/acrucetta/monkey-go/vm"
 )
 
 const Prompt = ">> "
